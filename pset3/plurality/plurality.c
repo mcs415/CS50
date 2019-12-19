@@ -87,12 +87,39 @@ bool vote(string name)
 
 void print_winner(void)
 {
-    // int maxvote; implement some sort of sort
     for (int i = 0; i < candidate_count; i++)
     {
-        printf("%s, %i", candidates.name[i], candidates.vote[i]);
+        printf("%s, %i", candidate.name[i], candidate.vote[i]);
     }
-
-    // TODO
     return;
 }
+//     void print_winner(void)
+//     {
+//         int maxvote;
+//         printf("The winner is: ");
+//
+//         for (int i = 0; i < candidate_count; i++)
+//         {
+//            if (i == 0)
+//             {
+//                 candidates = candidates[i];
+//                 maxvote = candidateHolder.name;
+//                 continue;
+//             }
+//             else if (candidates.votes < candidates[i].votes)
+//             {
+//                 candidates = candidates[i];
+//                 maxvote = candidateHolder.name;
+//             }
+//             else if (candidateHolder.votes == candidates[i].votes)
+//             {
+//                 candidates = candidates[i];
+//                 strcat(maxvote, ", ");
+//                 strcat(maxvote, candidateHolder.name);
+//             }
+//         }
+//         printf("%i\n", maxvote);
+//     }
+//     // TODO
+//     return;
+// }
