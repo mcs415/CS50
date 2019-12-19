@@ -1,0 +1,69 @@
+// Update vote totals given a new vote
+bool vote(string name)
+{
+    bool exist = false;
+
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (strcmp(name, candidates[i].name) == 0)
+        {
+            candidates[i].votes += 1;
+            exist = true;
+            break;
+        }
+    }
+
+    return exist;
+}
+
+// Print the winner (or winners) of the election
+void print_winner(void)
+{
+    candidate candidateHolder;
+    string heighest = "";
+
+    printf("The winner is: ");
+
+    for (int i = 0; i < candidate_count; i++)
+    {
+       if (i == 0)
+        {
+            candidateHolder = candidates[i];
+            heighest = candidateHolder.name;
+            continue;
+        }
+        else if (candidateHolder.votes < candidates[i].votes)
+        {
+            candidateHolder = candidates[i];
+            heighest = candidateHolder.name;
+        }
+        else if (candidateHolder.votes == candidates[i].votes)
+        {
+            candidateHolder = candidates[i];
+            strcat(heighest, ", ");
+            strcat(heighest, candidateHolder.name);
+        }
+    }
+    printf("%s\n", heighest);
+}
+
+ere's the pseudocode I'd use.
+
+Declare a maxvote int set to 0.
+Iterate over the list of candidates and check the number of votes. If that number is greater than the maxvote, update the maxvote to that number. Once the loop finishes, you now have maxvote.
+
+Next, again iterate over the list of candidates and print (as you go) each candidate who has that maxvote number of votes.
+
+There's no need as you've done to create a new string and then try to manipulate that.
+
+As the spec shows, the winner(s) should simply be printed at the end, one per line.
+
+$ ./plurality Alice Bob Charlie
+Number of voters: 5
+Vote: Alice
+Vote: Charlie
+Vote: Bob
+Vote: Bob
+Vote: Alice
+Alice
+Bob

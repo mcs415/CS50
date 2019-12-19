@@ -58,6 +58,11 @@ int main(int argc, string argv[])
             printf("Invalid vote.\n");
         }
     }
+    //my addition to program to learn and verify results NEED HELP HERE
+    for (int i = 0; i < candidate_count; i++)
+    {
+        printf("%s, %i", candidates.name[i], candidates.vote[i]);
+    }
 
     // Display winner of election
     print_winner();
@@ -67,13 +72,27 @@ int main(int argc, string argv[])
 bool vote(string name)
 {
     // TODO
-    return false;
+    bool myFlag;
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (strcmp(name, candidates[i].name) == 0)
+        {
+            candidates[i].votes += 1;
+            myFlag = true;
+            break;
+        }
+    }
+    return myFlag;
 }
 
-// Print the winner (or winners) of the election
 void print_winner(void)
 {
+    // int maxvote; implement some sort of sort
+    for (int i = 0; i < candidate_count; i++)
+    {
+        printf("%s, %i", candidates.name[i], candidates.vote[i]);
+    }
+
     // TODO
     return;
 }
-
