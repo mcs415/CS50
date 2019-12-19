@@ -22,7 +22,7 @@ int candidate_count;
 
 // Function prototypes
 //replaced this with with char instead of cs50 string. Help below!
-_Bool vote(char *name);
+// Bool vote(char *name);
 void print_winner(void);
 
 int main(int argc, char * * argv[])
@@ -61,14 +61,14 @@ int main(int argc, char * * argv[])
     {
         //string name = get_string("Vote: ");
         //replaced this with with char instead of cs50 string. Help below!
-        char name[32];
+        char name[64];
         printf("Vote\n");
-        fgets(name, 32, stdin);
+        fgets(name, 64, stdin);
         // Check for invalid vote
-        if (!vote(name))
-        {
-            printf("Invalid vote.\n");
-        }
+        // if (!vote(name))
+        // {
+        //     printf("Invalid vote.\n");
+        // }
         printf("%s", name);
     }
 
