@@ -58,11 +58,12 @@ int main(int argc, string argv[])
             printf("Invalid vote.\n");
         }
     }
-    //my addition to program to learn and verify results NEED HELP HERE
-    for (int i = 0; i < candidate_count; i++)
-    {
-        printf("%s, %i", candidates.name[i], candidates.vote[i]);
-    }
+    // CODE HELPED TO VERIFY BOOL VOTE FUNCTION
+    // for (int i = 0; i < candidate_count; i++)
+    // {
+    //     printf("%s", candidates[i].name);
+    //     printf("%d\n",candidates[i].votes);
+    // }
 
     // Display winner of election
     print_winner();
@@ -71,55 +72,35 @@ int main(int argc, string argv[])
 // Update vote totals given a new vote
 bool vote(string name)
 {
-    // TODO
-    bool myFlag;
+
     for (int i = 0; i < candidate_count; i++)
     {
         if (strcmp(name, candidates[i].name) == 0)
         {
             candidates[i].votes += 1;
-            myFlag = true;
-            break;
         }
+
     }
-    return myFlag;
+    return name;
 }
 
 void print_winner(void)
 {
-    for (int i = 0; i < candidate_count; i++)
+
+    int maxvotes = 0;
+    for (int i=0; i<candidate_count; i++)
     {
-        printf("%s, %i", candidate.name[i], candidate.vote[i]);
+        if (maxvotes < candidates[i].votes )
+        {
+            maxvotes = candidates[i].votes;
+        }
     }
-    return;
+    for (int i=0; i<candidate_count; i++)
+    {
+        if (candidates[i].votes == maxvotes)
+        {
+            printf("%s\n", candidates[i].name);
+        }
+    }
+
 }
-//     void print_winner(void)
-//     {
-//         int maxvote;
-//         printf("The winner is: ");
-//
-//         for (int i = 0; i < candidate_count; i++)
-//         {
-//            if (i == 0)
-//             {
-//                 candidates = candidates[i];
-//                 maxvote = candidateHolder.name;
-//                 continue;
-//             }
-//             else if (candidates.votes < candidates[i].votes)
-//             {
-//                 candidates = candidates[i];
-//                 maxvote = candidateHolder.name;
-//             }
-//             else if (candidateHolder.votes == candidates[i].votes)
-//             {
-//                 candidates = candidates[i];
-//                 strcat(maxvote, ", ");
-//                 strcat(maxvote, candidateHolder.name);
-//             }
-//         }
-//         printf("%i\n", maxvote);
-//     }
-//     // TODO
-//     return;
-// }
